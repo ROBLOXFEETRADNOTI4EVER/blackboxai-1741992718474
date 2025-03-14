@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAT - Sat-Elite Assembly Team</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-green': '#00ff00',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000;
+            background-image: radial-gradient(circle at center, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
+        }
+        .orbit-animation {
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s infinite;
+        }
+        .orbit-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            position: absolute;
+            animation: rotate 10s linear infinite;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.2; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00ff00;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+        .button-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .button-glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: glow 3s linear infinite;
+        }
+        @keyframes glow {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+    </style>
+</head>
+<body class="font-inter text-white min-h-screen">
+    <!-- Header -->
+    <header class="fixed w-full top-0 bg-black bg-opacity-90 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold text-neon-green">SEAT</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="mailto:info@canseat.hu" class="nav-link text-gray-300">
+                    <i class="fas fa-envelope"></i> info@canseat.hu
+                </a>
+                <a href="#" class="nav-link text-gray-300">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="nav-link text-gray-300">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="orbit-animation" style="width: 200px; height: 200px;">
+            <div class="orbit-dot"></div>
+        </div>
+        <div class="orbit-animation" style="width: 400px; height: 400px;">
+            <div class="orbit-dot"></div>
+        </div>
+        <div class="orbit-animation" style="width: 600px; height: 600px;">
+            <div class="orbit-dot"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">CANSAT-VERSENY 2024</h1>
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">SEAT<br>Sat-Elite Assembly Team</h2>
+            <p class="text-xl mb-12 max-w-3xl mx-auto">
+                A Sat-Elite Assembly Team (SEAT) egy lelkes magyar diákcsapat, amely a CanSat-versenyek keretében miniatűr műholdak fejlesztésével és építésével foglalkozik.
+            </p>
+            <a href="#about" class="button-glow bg-transparent border-2 border-neon-green text-neon-green px-8 py-3 rounded-lg hover:bg-neon-green hover:text-black transition duration-300">
+                ISMERD MEG A CSAPATOT!
+            </a>
+        </div>
+    </section>
+
+    <!-- What is CanSat Section -->
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h3 class="text-neon-green text-xl mb-4">MI EZ?</h3>
+            <h2 class="text-4xl font-bold mb-12">A CanSat egy műholdépítő verseny</h2>
+            <p class="text-xl mb-8">
+                A CanSat egy nemzetközi műholdépítő verseny, ahol a diákcsapatok feladata egy üdítősdoboz méretű műhold megtervezése és megépítése. A verseny célja, hogy a résztvevők valós tapasztalatot szerezzenek a műholdas technológiák terén, beleértve az adatgyűjtést, kommunikációt és szenzortechnológiát.
+            </p>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12">Célunk</h2>
+            <p class="text-xl mb-12">
+                Célunk, hogy innovatív és működőképes CanSat-műholdakat hozzunk létre, miközben fejlesztjük mérnöki és csapatmunkára vonatkozó készségeinket. Törekszünk arra, hogy sikeresen szerepeljünk a nemzetközi versenyeken és inspiráljuk a fiatalokat a tudomány és technológia területén.
+            </p>
+            
+            <!-- Feature Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <!-- Research Card -->
+                <div class="border border-neon-green rounded-lg p-6 bg-black bg-opacity-50 card-hover">
+                    <div class="text-neon-green mb-4">
+                        <i class="fas fa-search text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Kutatás és fejlesztés</h3>
+                    <p>Folyamatosan dolgozunk új technológiák és megoldások integrálásán, hogy műholdjaink minél hatékonyabbak és megbízhatóbbak legyenek.</p>
+                </div>
+
+                <!-- Education Card -->
+                <div class="border border-neon-green rounded-lg p-6 bg-black bg-opacity-50 card-hover">
+                    <div class="text-neon-green mb-4">
+                        <i class="fas fa-graduation-cap text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Oktatás és mentorálás</h3>
+                    <p>Fontosnak tartjuk a tudásmegosztást, ezért workshopokat és előadásokat szervezünk, hogy mások is betekintést nyerjenek a műholdépítés világába.</p>
+                </div>
+
+                <!-- Community Card -->
+                <div class="border border-neon-green rounded-lg p-6 bg-black bg-opacity-50 card-hover">
+                    <div class="text-neon-green mb-4">
+                        <i class="fas fa-users text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Közösségi kapcsolatok</h3>
+                    <p>Aktívan részt veszünk a tudományos közösségekben, együttműködünk más csapatokkal és szervezetekkel a közös fejlődés érdekében.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-black bg-opacity-90 relative">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">A jövő mérnökei ma kezdik a világűr meghódítását!</h2>
+            <p class="text-xl mb-12">
+                Ha érdekel a műholdépítés és szeretnél egy dinamikus csapat tagja lenni, várjuk jelentkezésedet! Együtt építjük a jövőt.
+            </p>
+            <a href="#" class="button-glow bg-neon-green text-black px-8 py-3 rounded-lg hover:bg-opacity-80 transition duration-300 font-bold">
+                Jelentkezz most!
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 mb-4 md:mb-0">
+                    © 2024 SEAT - Sat-Elite Assembly Team. Minden jog fenntartva.
+                </div>
+            <div class="flex space-x-6">
+                <a href="mailto:info@canseat.hu" class="nav-link text-gray-400">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" class="nav-link text-gray-400">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="nav-link text-gray-400">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
